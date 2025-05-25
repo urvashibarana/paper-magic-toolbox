@@ -1,7 +1,21 @@
 
-import { Upload, FileText, Download, Edit, Scissors, Merge, Archive, FileImage, Shield, Zap, Globe } from "lucide-react";
+import { Upload, FileText, Download, Edit, Scissors, Merge, Archive, FileImage, Shield, Zap, Globe, Menu, ChevronDown } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 
 const Index = () => {
   const pdfTools = [
@@ -66,26 +80,141 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm shadow-sm border-b border-gray-200/50 sticky top-0 z-50">
+      <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
+            {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
-                <FileText className="w-6 h-6 text-white" />
+              <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center">
+                <FileText className="w-5 h-5 text-white" />
               </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">PDFTools Pro</h1>
-                <p className="text-xs text-gray-600">Professional PDF Solutions</p>
-              </div>
+              <span className="text-xl font-bold text-gray-900">iLovePDF</span>
             </div>
-            <nav className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-700 hover:text-red-600 transition-colors font-medium">Tools</a>
-              <a href="#" className="text-gray-700 hover:text-red-600 transition-colors font-medium">Features</a>
-              <a href="#" className="text-gray-700 hover:text-red-600 transition-colors font-medium">Pricing</a>
-              <Button variant="outline" className="border-red-200 text-red-600 hover:bg-red-50">
-                Sign In
-              </Button>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-1">
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-red-600 font-medium">
+                      PDF Tools
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-[600px] p-6 bg-white">
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="space-y-3">
+                            <h4 className="font-semibold text-gray-900 mb-3">Organize</h4>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">Merge PDF</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">Split PDF</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">Compress PDF</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">Rotate PDF</a>
+                          </div>
+                          <div className="space-y-3">
+                            <h4 className="font-semibold text-gray-900 mb-3">Convert from PDF</h4>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">PDF to Word</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">PDF to Excel</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">PDF to PowerPoint</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">PDF to JPG</a>
+                          </div>
+                          <div className="space-y-3">
+                            <h4 className="font-semibold text-gray-900 mb-3">Convert to PDF</h4>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">Word to PDF</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">Excel to PDF</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">PowerPoint to PDF</a>
+                            <a href="#" className="block text-sm text-gray-600 hover:text-red-600 transition-colors">JPG to PDF</a>
+                          </div>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center space-x-1 px-3 py-2 text-gray-700 hover:text-red-600 font-medium rounded-md hover:bg-gray-50 transition-colors">
+                  <span>Solutions</span>
+                  <ChevronDown className="w-4 h-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56 bg-white shadow-lg border">
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    For Business
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    For Education
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    For Developers
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    Desktop App
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    Mobile App
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center space-x-1 px-3 py-2 text-gray-700 hover:text-red-600 font-medium rounded-md hover:bg-gray-50 transition-colors">
+                  <span>Products</span>
+                  <ChevronDown className="w-4 h-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56 bg-white shadow-lg border">
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    iLovePDF Desktop
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    iLovePDF Mobile
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    API Developer
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    WordPress Plugin
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <a href="#" className="px-3 py-2 text-gray-700 hover:text-red-600 font-medium rounded-md hover:bg-gray-50 transition-colors">
+                Pricing
+              </a>
             </nav>
+
+            {/* Right side buttons */}
+            <div className="flex items-center space-x-4">
+              <Button variant="ghost" className="hidden md:flex text-gray-700 hover:text-red-600">
+                Log in
+              </Button>
+              <Button className="bg-red-600 hover:bg-red-700 text-white">
+                Sign up
+              </Button>
+              
+              {/* Mobile menu button */}
+              <DropdownMenu>
+                <DropdownMenuTrigger className="lg:hidden p-2 text-gray-700 hover:text-red-600">
+                  <Menu className="w-6 h-6" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56 bg-white shadow-lg border lg:hidden">
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    PDF Tools
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    Solutions
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    Products
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    Pricing
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                    Log in
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
       </header>
@@ -160,7 +289,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -200,7 +328,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-red-500 to-orange-600">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-4xl font-bold text-white mb-6">
@@ -215,7 +342,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
